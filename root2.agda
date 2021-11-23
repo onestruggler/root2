@@ -13,8 +13,6 @@ open import Data.Sum renaming (inj₁ to even ; inj₂ to odd)
 open import Relation.Nullary
 open import Data.Empty
 
---  We show √2 is irrational. The following theorem says there
-
 -- Even predicate.
 Even : ℕ -> Set
 Even n = ∃ λ k → n ≡ 2 * k
