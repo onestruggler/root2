@@ -24,7 +24,7 @@ Odd n = ∃ λ k → n ≡ 1 + 2 * k
 
 open +-*-Solver
 
--- Lemma: a natural number cannot be both even and odd.
+-- Lemma: an even number cannot equal to an odd number. 
 lemma-even-odd-exclusive : ∀ k l ->  ¬ 2 * k ≡ 1 + 2 * l
 lemma-even-odd-exclusive k l hyp = z hyp'
   where
@@ -55,7 +55,7 @@ lemma-even-odd-exclusive k l hyp = z hyp'
         where
           open ≡-Reasoning      
 
-
+-- Lemma: a natural number cannot be both even and odd. 
 lemma-even-odd-exclusive' : ∀ n -> ¬ (Even n × Odd n)
 lemma-even-odd-exclusive' n ((k , eqn) , (l , eqn')) = lemma-even-odd-exclusive k l claim
   where
@@ -86,10 +86,9 @@ Parity (suc n) with Parity n
       where
         open ≡-Reasoning
     
-
+-- Auxillary lemmas:
 lemma-div2 : ∀ n .{{_ : NonZero n}} -> n / 2 < n
 lemma-div2 n = m/n<m n 2 (s≤s (s≤s z≤n))
-
 
 lemma-<-< : ∀ {a b c} -> a < b -> b < suc c -> a < c
 lemma-<-<  (s≤s ab) (s≤s bc) = <-transˡ (s≤s ab) bc
